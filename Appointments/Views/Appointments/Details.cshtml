@@ -1,0 +1,56 @@
+﻿@model Appointments.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheTime)
+        </dd>
+
+        <dt>
+            <br />
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" })
+        </dt>
+        <dd>
+            <br />
+            @Html.ActionLink("Cancel", "Index", "", new { @class = "btn btn-primary" })
+        </dd>
+    </dl>
+</div>
+

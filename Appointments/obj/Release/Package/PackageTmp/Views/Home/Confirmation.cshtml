@@ -1,0 +1,8 @@
+﻿@model Appointments.Models.Appointment
+
+<div class="jumbotron">
+    <h3><strong>@Model.Name</strong></h3>
+    <h3 class="text-success">You have an appointment on @Model.TheDate.DayOfWeek, @Model.TheDate.ToString("dd MMMM yyyy"), at @Model.TheTime. </h3>
+    <p> A confirmation email has been sent to your email address: @Model.Email.
+    <p>If you would like to cancel or amend your appointment, please @Html.ActionLink("click here", "Amend").</p>
+</div>

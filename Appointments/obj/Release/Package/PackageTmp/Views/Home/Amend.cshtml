@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Enter your email address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Amend Your Appointment</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <br />
+        @Html.Label("Enter your email address:", htmlAttributes: new { @class = "control-label" })
+        @Html.TextBox("Email", null, new { type = "email", @class = "form-control", required = "true", placeholder = "user@company.com" })
+
+        <br />
+        <input type="submit" value="Next" class="btn btn-primary" />
+        <br />
+        <br />
+        <div class="text-danger">
+            @ViewBag.Message
+        </div>
+
+
+    }
+

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Delete Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cancellation Confirmation</h2>
+
+<div class="jumbotron">
+    <h3><strong>@Model.Name</strong></h3>
+    <h3 class="text-success">Your appointment has been cancelled.</h3>
+    <p> A confirmation email has been sent to your email address: @Model.Email.
+    <p>To make another appointment, please @Html.ActionLink("click here", "Register").</p>
+</div>
+

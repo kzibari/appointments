@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Appointments.Models.Appointment>
+
+@{
+    ViewBag.Title = "Admin Page";
+}
+
+<h2>List of Appointments</h2>
+<br />
+<br />
+<div class="row">
+
+    <div class="col-md-4">
+        <form method="get">
+            <input type="search" name="searchTerm" />
+            <input type="submit" value="Search by name/email" />
+        </form>
+    </div>
+    <div class="col-md-4">
+        <form method="get">
+            <input type="text" name="byDate" class="datepicker" />
+            <input type="submit" value="Search by date" />
+        </form>
+    </div>
+    <div class="col-md-4">
+        <p>
+            @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary floatRight" })
+        </p>
+    </div>
+</div>
+
+<br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Time
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd MM yy",
+                minDate: 0,
+                beforeShowDay: $.datepicker.noWeekends
+            });
+        }
+        );
+    </script>
+}
