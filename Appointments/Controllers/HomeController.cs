@@ -26,6 +26,7 @@ namespace Appointments.Controllers
         {
             if (ModelState.IsValid)
             {
+                //added a comment
                 //Save user date in Database
                 _db.Appointments.Add(appointment);
                 _db.SaveChanges();
